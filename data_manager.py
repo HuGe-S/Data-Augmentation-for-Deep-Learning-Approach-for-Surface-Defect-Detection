@@ -45,18 +45,20 @@ class DataManager(object):
     def read_data(self, data_name):
         img = cv2.imread(data_name, 0)  # /255.#read the gray image
         img = cv2.resize(img, (IMAGE_SIZE[1], IMAGE_SIZE[0]))
-        img = self.alter_image(img)
+        #img = self.alter_image(img)
         # img = img.swapaxes(0, 1)
         # image = (np.array(img[:, :, np.newaxis]))
         return img
     def read_data_label(self, data_name):
         img = cv2.imread(data_name, 0)  # /255.#read the gray image
         img = cv2.resize(img, (IMAGE_SIZE[1], IMAGE_SIZE[0]))
+        #img = self.alter_image(img)
         # img = img.swapaxes(0, 1)
         # image = (np.array(img[:, :, np.newaxis]))
         return img
 
     def alter_image(self, image):
+        image = cv2.flip(image, 1)
         return image
     
     def label_preprocess(self,label):

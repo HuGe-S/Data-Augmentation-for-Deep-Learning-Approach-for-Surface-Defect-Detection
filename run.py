@@ -5,7 +5,7 @@ from agent import Agent
 DefaultParam = {
     "mode": "testing",  # 模式  {"training","testing" }
     "train_mode":"decision", #训练模式，{"segment":only train segment net,"decision": only train decision net, "total": both}
-    "epochs_num": 5,
+    "epochs_num": 50,
     "batch_size": 1,
     "learn_rate": 0.001,
     "momentum": 0.9,                 # 优化器参数(disable)

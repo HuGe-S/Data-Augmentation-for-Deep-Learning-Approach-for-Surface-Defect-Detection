@@ -1,0 +1,12 @@
+[INFO]   2020-11-30 13:54:46,604    start testing
+[INFO]   2020-11-30 13:55:13,791     total number of samples = 159
+[INFO]   2020-11-30 13:55:13,791    positive = 20
+[INFO]   2020-11-30 13:55:13,791    negative = 139
+[INFO]   2020-11-30 13:55:13,791    TP = 10
+[INFO]   2020-11-30 13:55:13,791    NP = 1
+[INFO]   2020-11-30 13:55:13,791    TN = 138
+[INFO]   2020-11-30 13:55:13,791    FN = 10
+[INFO]   2020-11-30 13:55:13,791    accuracy(准确率) = 0.9308
+[INFO]   2020-11-30 13:55:13,791    prescision（查准率） = 0.9091
+[INFO]   2020-11-30 13:55:13,791    recall（查全率） = 0.5000
+[INFO]   2020-11-30 13:55:13,791    the visualization saved in ./visualization/test

@@ -36,7 +36,7 @@ class DataManager(object):
             image_path = os.path.join(self.data_dir, file_basename_image)
             label_path= os.path.join(self.data_dir, file_basename_label)
             image= self.read_data(image_path)
-            label = self.read_data(label_path)
+            label = self.read_data_label(label_path)
             label_pixel,label=self.label_preprocess(label)
             image = (np.array(image[:, :, np.newaxis]))
             label_pixel = (np.array(label_pixel[:, :, np.newaxis]))
@@ -45,11 +45,20 @@ class DataManager(object):
     def read_data(self, data_name):
         img = cv2.imread(data_name, 0)  # /255.#read the gray image
         img = cv2.resize(img, (IMAGE_SIZE[1], IMAGE_SIZE[0]))
+        img = self.alter_image(img)
+        # img = img.swapaxes(0, 1)
+        # image = (np.array(img[:, :, np.newaxis]))
+        return img
+    def read_data_label(self, data_name):
+        img = cv2.imread(data_name, 0)  # /255.#read the gray image
+        img = cv2.resize(img, (IMAGE_SIZE[1], IMAGE_SIZE[0]))
         # img = img.swapaxes(0, 1)
         # image = (np.array(img[:, :, np.newaxis]))
         return img
 
-
+    def alter_image(self, image):
+        return image
+    
     def label_preprocess(self,label):
         label = cv2.resize(label, (int(IMAGE_SIZE[1]/8), int(IMAGE_SIZE[0]/8)))
         label_pixel=self.ImageBinarization(label)

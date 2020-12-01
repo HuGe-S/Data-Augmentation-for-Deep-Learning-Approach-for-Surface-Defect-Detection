@@ -5,7 +5,7 @@ from agent import Agent
 DefaultParam = {
     "mode": "testing",  # 模式  {"training","testing" }
     "train_mode":"decision", #训练模式，{"segment":only train segment net,"decision": only train decision net, "total": both}
-    "epochs_num": 5,
+    "epochs_num": 50,
     "batch_size": 1,
     "learn_rate": 0.001,
     "momentum": 0.9,                 # 优化器参数(disable)
@@ -14,8 +14,8 @@ DefaultParam = {
     "Log_dir": "Log",  # 日志打印路径
     "valid_ratio": 0,  # 数据集中用来验证的比例  (disable)
     "valid_frequency": 3,  # 每几个周期验证一次  (disable)
-    "save_frequency": 2,  # 几个周期保存一次模型
-    "max_to_keep": 10,  # 最多保存几个模型
+    "save_frequency": 10,  # 几个周期保存一次模型
+    "max_to_keep": 2,  # 最多保存几个模型
     "b_restore": True,  # 导入参数
     "b_saveNG": True,  # 测试时是否保存错误的样本  (disable)
 }

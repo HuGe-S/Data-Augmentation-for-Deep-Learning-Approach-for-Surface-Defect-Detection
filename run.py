@@ -13,7 +13,7 @@ DefaultParam = {
     "checkPoint_dir": "checkpoint",  # 模型保存路径
     "Log_dir": "Log",  # 日志打印路径
     "valid_ratio": 0,  # 数据集中用来验证的比例  (disable)
-    "valid_frequency": 3,  # 每几个周期验证一次  (disable)
+    "valid_frequency": 10,  # 每几个周期验证一次  (disable)
     "save_frequency": 10,  # 几个周期保存一次模型
     "max_to_keep": 2,  # 最多保存几个模型
     "b_restore": True,  # 导入参数

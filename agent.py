@@ -42,11 +42,17 @@ class Agent(object):
 	def train(self,mode):
 		if mode not in ["segment","decision","total"]:
 			raise Exception('got a unexpected  training mode ,options :{segment,decision}')
+    #tensorboard
+		writer = tf.summary.FileWriter('./graphs')
+		acc_var = tf.Variable(0, dtype=tf.float32)
+		LOSS_ACCUMULATOR = tf.summary.scalar('LOSS', acc_var)
 		with self.__sess.as_default():
 			self.logger.info('start training {} net'.format(mode))
 			for i in range(self.model.step, self.__Param["epochs_num"] + self.model.step):
 				#epoch start
 				iter_loss = 0
+        #tensorboard
+				
 				for batch in range(self.DataManager_train_Positive.number_batch):
 					#batch start
 					for index  in  range(2):
@@ -71,11 +77,15 @@ class Agent(object):
 																   self.model.PixelLabel: label_pixel_batch,
 																   self.model.Label: label_batch})
 						iter_loss+= loss_value_batch
+						
 						#可视化
 						if i % self.__Param["valid_frequency"] == 0 and i>0:
 							mask_batch = self.__sess.run(self.model.mask, feed_dict={self.model.Image: img_batch})
 							save_dir = "./visualization/training_epoch-{}".format(i)
 							self.visualization(img_batch, label_pixel_batch, mask_batch, file_name_batch,save_dir)
+				self.__sess.run(acc_var.assign(iter_loss))
+				writer.add_summary(self.__sess.run(LOSS_ACCUMULATOR), i)
+    
 				self.logger.info('epoch:[{}] ,train_mode:{}, loss: {}'.format(self.model.step, mode,iter_loss))
 				#保存模型
 				if i % self.__Param["save_frequency"] == 0 or i==self.__Param["epochs_num"] + self.model.step-1:
@@ -84,6 +94,7 @@ class Agent(object):
 				# if i % self.__Param["valid_frequency"] == 0 and i>0:
 				# 	self.valid()
 				self.model.step += 1
+		writer.flush()
 
 
 	def test(self):

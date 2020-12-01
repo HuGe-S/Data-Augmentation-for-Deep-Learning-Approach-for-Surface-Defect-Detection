@@ -127,6 +127,7 @@ class Model(object):
         self.optimize_decision = optimize_decision
         self.optimize_total = optimize_total
         self.init_op=init_op
+        
 
     def save(self):
         self.__saver.save(

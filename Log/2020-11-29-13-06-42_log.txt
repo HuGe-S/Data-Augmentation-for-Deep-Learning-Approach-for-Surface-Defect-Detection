@@ -1,6 +1,0 @@
-[INFO]   2020-11-29 13:06:42,186    start training total net
-[INFO]   2020-11-29 13:07:14,656    epoch:[0] ,train_mode:total, loss: 59.600778579711914
-[INFO]   2020-11-29 13:07:36,832    epoch:[1] ,train_mode:total, loss: 53.2818278670311
-[INFO]   2020-11-29 13:07:59,024    epoch:[2] ,train_mode:total, loss: 56.2827975153923
-[INFO]   2020-11-29 13:08:29,827    epoch:[3] ,train_mode:total, loss: 47.14353132247925
-[INFO]   2020-11-29 13:08:52,574    epoch:[4] ,train_mode:total, loss: 42.95910286903381

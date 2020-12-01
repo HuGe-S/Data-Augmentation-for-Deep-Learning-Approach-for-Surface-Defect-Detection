@@ -6,6 +6,7 @@ from config import *
 from scipy.misc import imread, imresize, imsave
 from random import shuffle
 import  tensorflow as tf
+import random
 
 class DataManager(object):
     def __init__(self, dataList,param,shuffle=True):
@@ -35,8 +36,11 @@ class DataManager(object):
             file_basename_image,file_basename_label = self.data_list[index]
             image_path = os.path.join(self.data_dir, file_basename_image)
             label_path= os.path.join(self.data_dir, file_basename_label)
-            image= self.read_data(image_path)
-            label = self.read_data_label(label_path)
+            #image= self.read_data(image_path)
+            #label = self.read_data(label_path)
+            image = self.read_data(image_path)
+            label = self.read_data(label_path)
+            image,label = self.alter_image(image,label)
             label_pixel,label=self.label_preprocess(label)
             image = (np.array(image[:, :, np.newaxis]))
             label_pixel = (np.array(label_pixel[:, :, np.newaxis]))
@@ -49,17 +53,19 @@ class DataManager(object):
         # img = img.swapaxes(0, 1)
         # image = (np.array(img[:, :, np.newaxis]))
         return img
-    def read_data_label(self, data_name):
-        img = cv2.imread(data_name, 0)  # /255.#read the gray image
-        img = cv2.resize(img, (IMAGE_SIZE[1], IMAGE_SIZE[0]))
-        #img = self.alter_image(img)
-        # img = img.swapaxes(0, 1)
-        # image = (np.array(img[:, :, np.newaxis]))
-        return img
 
-    def alter_image(self, image):
-        image = cv2.flip(image, 1)
-        return image
+
+    def rotation(self,img, angle):
+        angle = int(random.uniform(-angle, angle))
+        h, w = img.shape[:2]
+        M = cv2.getRotationMatrix2D((int(w/2), int(h/2)), angle, 1)
+        img = cv2.warpAffine(img, M, (w, h))
+        return img
+    def alter_image(self, image, labelimage):
+        angle = random.randint(0, 180)
+        image = self.rotation(image,angle)
+        labelimage = self.rotation(labelimage,angle)
+        return image,labelimage
     
     def label_preprocess(self,label):
         label = cv2.resize(label, (int(IMAGE_SIZE[1]/8), int(IMAGE_SIZE[0]/8)))

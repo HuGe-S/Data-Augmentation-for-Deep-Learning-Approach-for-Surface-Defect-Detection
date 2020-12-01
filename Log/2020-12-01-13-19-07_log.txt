@@ -1,0 +1,1 @@
+[INFO]   2020-12-01 13:19:07,406    start training total net

@@ -7,7 +7,7 @@ from scipy.misc import imread, imresize, imsave
 from random import shuffle
 import  tensorflow as tf
 import random
-from imgaug import augmenters as iaa
+import imgaug.augmenters as iaa
 import imgaug as ia
 
 class DataManager(object):
@@ -43,8 +43,8 @@ class DataManager(object):
             #label = self.read_data(label_path)
             image = self.read_data(image_path)
             label = self.read_data(label_path)
-            #if(self.traintype=="training"):
-              #image,label = self.alter_image(image,label) 
+            if(self.traintype=="training"):
+              image,label = self.alter_image(image,label) 
             label_pixel,label=self.label_preprocess(label)
             image = (np.array(image[:, :, np.newaxis]))
             label_pixel = (np.array(label_pixel[:, :, np.newaxis]))
@@ -69,10 +69,11 @@ class DataManager(object):
         #angle = random.randint(0, 180)
         #image = self.rotation(image,angle)
         #labelimage = self.rotation(labelimage,angle)
-        ia.seed(4)
-        rotate = iaa.Affine(rotate=(-25, 25))
-        image = rotate(image=image)
-        labelimage = rotate(image=labelimage)
+        #ia.seed(4)
+        #rotate = iaa.Affine(rotate=(-25, 25))
+        aug = iaa.MotionBlur(k=15)
+        image = aug(image=image)
+        labelimage = aug(image=labelimage)
         return image,labelimage
     
     def label_preprocess(self,label):

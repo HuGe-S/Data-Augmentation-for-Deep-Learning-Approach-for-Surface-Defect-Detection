@@ -6,7 +6,7 @@ DefaultParam = {
     "mode": "testing",  # 模式  {"training","testing" }
     "train_mode":"decision", #训练模式，{"segment":only train segment net,"decision": only train decision net, "total": both}
     "epochs_num": 101,
-    "batch_size": 5,
+    "batch_size": 1,
     "learn_rate": 0.008,
     "momentum": 0.9,                 # 优化器参数(disable)
     "data_dir": "/content/Deep-Learning-Approach-for-Surface-Defect-Detection/KolektorSDD",  # 数据路径

@@ -73,7 +73,7 @@ class DataManager(object):
         #rotate = iaa.Affine(rotate=(-25, 25))
         aug = iaa.MotionBlur(k=15)
         image = aug(image=image)
-        labelimage = aug(image=labelimage)
+        #labelimage = aug(image=labelimage)
         return image,labelimage
     
     def label_preprocess(self,label):

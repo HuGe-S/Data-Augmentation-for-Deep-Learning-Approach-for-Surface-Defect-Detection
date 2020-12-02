@@ -5,9 +5,9 @@ from agent import Agent
 DefaultParam = {
     "mode": "testing",  # 模式  {"training","testing" }
     "train_mode":"decision", #训练模式，{"segment":only train segment net,"decision": only train decision net, "total": both}
-    "epochs_num": 50,
-    "batch_size": 1,
-    "learn_rate": 0.001,
+    "epochs_num": 101,
+    "batch_size": 5,
+    "learn_rate": 0.007,
     "momentum": 0.9,                 # 优化器参数(disable)
     "data_dir": "/content/Deep-Learning-Approach-for-Surface-Defect-Detection/KolektorSDD",  # 数据路径
     "checkPoint_dir": "checkpoint",  # 模型保存路径

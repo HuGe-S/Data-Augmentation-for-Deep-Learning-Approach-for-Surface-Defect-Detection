@@ -8,6 +8,7 @@ from random import shuffle
 import  tensorflow as tf
 import random
 from imgaug import augmenters as iaa
+import imgaug as ia
 
 class DataManager(object):
     def __init__(self, dataList,param,shuffle=True):
@@ -42,8 +43,8 @@ class DataManager(object):
             #label = self.read_data(label_path)
             image = self.read_data(image_path)
             label = self.read_data(label_path)
-            if(self.traintype=="training"):
-              image,label = self.alter_image(image,label) 
+            #if(self.traintype=="training"):
+              #image,label = self.alter_image(image,label) 
             label_pixel,label=self.label_preprocess(label)
             image = (np.array(image[:, :, np.newaxis]))
             label_pixel = (np.array(label_pixel[:, :, np.newaxis]))

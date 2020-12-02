@@ -7,6 +7,7 @@ from scipy.misc import imread, imresize, imsave
 from random import shuffle
 import  tensorflow as tf
 import random
+from imgaug import augmenters as iaa
 
 class DataManager(object):
     def __init__(self, dataList,param,shuffle=True):
@@ -65,9 +66,13 @@ class DataManager(object):
         img = cv2.warpAffine(img, M, (w, h))
         return img
     def alter_image(self, image, labelimage):
-        angle = random.randint(0, 180)
-        image = self.rotation(image,angle)
-        labelimage = self.rotation(labelimage,angle)
+        #angle = random.randint(0, 180)
+        #image = self.rotation(image,angle)
+        #labelimage = self.rotation(labelimage,angle)
+        ia.seed(4)
+        rotate = iaa.Affine(rotate=(-25, 25))
+        image = rotate(image=image)
+        labelimage = rotate(image=labelimage)
         return image,labelimage
     
     def label_preprocess(self,label):

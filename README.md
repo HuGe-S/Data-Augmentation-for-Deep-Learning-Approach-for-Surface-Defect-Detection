@@ -1,8 +1,11 @@
 
 # Data Augmentation of Deep-Learning-Approach-for-Surface-Defect-Detection
   This repository is built upon the Tensorflow implementation of "**Segmentation-Based Deep-Learning Approach for Surface-Defect Detection**"(https://github.com/Wslsdx/Deep-Learning-Approach-for-Surface-Defect-Detection) to apply multiple data augmentation methods on this model. The purpose of this repository is to find the best data augmentation method that improve the SDD model's perfromance.
+  
   We use "**imgaug**" (https://github.com/aleju/imgaug) to implement the  various data augmentation method. You can go [here](https://github.com/aleju/imgaug/blob/master/README.md) to find out how to use imgaug.
+  
   The author submitted the paper to  Journal of Intelligent Manufacturing (https://link.springer.com/article/10.1007/s10845-019-01476-x), where it was published In May 2019 . 
+  
 # The test environment
 ```
 python 3.6
@@ -22,13 +25,20 @@ Spicy 1.10
 
 # Repository useage
   To simplify the usage of the model, we build a Google colab environment to help users quickly build the framework and implement their own data augmentation method.
-  There are 4 main setp to test your framework
+  There are 4 main setp to test your framework after  clone this repository in Google Colab
+  
   1.Environment installization
+  
   2.Data Augmentation method implementation
+  
   3.Model Training
+  
   4.Visualization using tensorboard.
+  
   Each step is clearly marked in the google colab environment. To start your experiment [JUST CLICK HERE](https://colab.research.google.com/drive/1z4N_2Zc2vaYxTC1UekVL3mHfoWTylUJo?usp=sharing) or upload (https://github.com/HuGe-S/Deep-Learning-Approach-for-Surface-Defect-Detection/blob/master/Deep_Learning_Approach_for_Surface_Defect_Detection.ipynb) To your colab.
+  
 # Things you should know after training
+
   There are few folder that will be autimaticlly created once you finished training. Checkpoint is where the model is stored, Visualization is where the images during training are stored, And in Log folder you can find how the loss value converges over time.
   
   We also track the loss value using tensorboard. Here is one example:

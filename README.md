@@ -1,15 +1,15 @@
 
 # Data Augmentation of Deep-Learning-Approach-for-Surface-Defect-Detection
-  This repository is built upon the Tensorflow implementation of "**Segmentation-Based Deep-Learning Approach for Surface-Defect Detection**"(https://github.com/Wslsdx/Deep-Learning-Approach-for-Surface-Defect-Detection) to apply multiple data augmentation methods on this model. The purpose of this repository is to find the best data augmentation method that improve the SDD model's perfromance.
+  This repository is built upon the Tensorflow implementation of "**Segmentation-Based Deep-Learning Approach for Surface-Defect Detection**"(https://github.com/Wslsdx/Deep-Learning-Approach-for-Surface-Defect-Detection) to apply multiple data augmentation methods on this model. The purpose of this repository is to find the best data augmentation method that improves the SDD model's performance.
   
-  We use "**imgaug**" (https://github.com/aleju/imgaug) to implement the  various data augmentation method. You can go [here](https://github.com/aleju/imgaug/blob/master/README.md) to find out how to use imgaug.
+  We use "**imgaug**" (https://github.com/aleju/imgaug) to implement the various data augmentation method. You can go [here](https://github.com/aleju/imgaug/blob/master/README.md) to find out how to use imgaug.
   
-  The author submitted the paper to  Journal of Intelligent Manufacturing (https://link.springer.com/article/10.1007/s10845-019-01476-x), where it was published In May 2019 . 
+  The author submitted the paper to the Journal of Intelligent Manufacturing (https://link.springer.com/article/10.1007/s10845-019-01476-x), where it was published In May 2019 . 
   
 # The test environment
 ```
 python 3.6
-cuda 9.0
+Cuda 9.0
 cudnn 7.1.4
 Tensorflow 1.12
 Pillow 7.0
@@ -18,16 +18,16 @@ Spicy 1.10
 # Dataset
 
   The dataset we use is from the paper, you can download [KolektorSDD](https://www.vicos.si/Downloads/KolektorSDD) here.
-  It consisits of appoximately 300 electronic commutator's surface images. About 20 % of these images have defect.
+  It consists of approximately 300 electronic commutator's surface images. About 20 % of these images have a defect.
   You can refer to the [paper](https://link.springer.com/article/10.1007/s10845-019-01476-x) for details of the experiment.
  
 
 
-# Repository useage
+# Repository usage
   To simplify the usage of the model, we build a Google colab environment to help users quickly build the framework and implement their own data augmentation method.
-  There are 4 main setp to test your framework after  clone this repository in Google Colab
+  There are 4 main steps to test your framework after cloning this repository in Google Colab
   
-  1.Environment installization
+  1.Environment installation
   
   2.Data Augmentation method implementation
   
@@ -39,13 +39,13 @@ Spicy 1.10
   
 # Things you should know after training
 
-  There are few folder that will be autimaticlly created once you finished training. Checkpoint is where the model is stored, Visualization is where the images during training are stored, And in Log folder you can find how the loss value converges over time.
+  There are a few folders that will be automatically created once you finished training. The checkpoint is where the model is stored, Visualization is where the images during training are stored, And in the Log folder you can find how the loss value converges over time.
   
   We also track the loss value using tensorboard. Here is one example:
   
   ![example](https://github.com/HuGe-S/Deep-Learning-Approach-for-Surface-Defect-Detection/blob/master/images/i1.JPG)
   
-# Example of logfile
+# Example of the logfile
 ```
 [INFO]   2020-12-01 15:59:40,093    start testing
 [INFO]   2020-12-01 16:00:30,770     total number of samples = 159

@@ -1,3 +1,4 @@
+
 #Data Augmentation of Deep-Learning-Approach-for-Surface-Defect-Detection
   This repository is built upon the Tensorflow implementation of "**Segmentation-Based Deep-Learning Approach for Surface-Defect Detection**"(https://github.com/Wslsdx/Deep-Learning-Approach-for-Surface-Defect-Detection) to apply multiple data augmentation methods on this model. The purpose of this repository is to find the best data augmentation method that improve the SDD model's perfromance.
   We use "**imgaug**" (https://github.com/aleju/imgaug) to implement the  various data augmentation method. You can go [here](https://github.com/aleju/imgaug/blob/master/README.md) to find out how to use imgaug.
@@ -49,6 +50,7 @@ Spicy 1.10
 [INFO]   2020-12-01 16:00:30,771    recall（查全率） = 0.9048
 [INFO]   2020-12-01 16:00:30,771    the visualization saved in ./visualization/test
 ```
+
 #Addtional cmd
 
 ## testing the KolektorSDD

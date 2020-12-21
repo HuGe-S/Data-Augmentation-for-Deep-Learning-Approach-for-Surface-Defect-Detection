@@ -20,6 +20,8 @@ Spicy 1.10
   The dataset we use is from the paper, you can download [KolektorSDD](https://www.vicos.si/Downloads/KolektorSDD) here.
   It consists of approximately 300 electronic commutator's surface images. About 20 % of these images have a defect.
   You can refer to the [paper](https://link.springer.com/article/10.1007/s10845-019-01476-x) for details of the experiment.
+  
+   Create an floder named KolektorSDD in this repository to store your downloaded dataset
  
 
 
